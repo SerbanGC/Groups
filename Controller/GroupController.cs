@@ -36,7 +36,7 @@ namespace Controller
         }
 
         [HttpPut]
-        public void UpdateGroupItemById([FromQuery] int groupId, [FromQuery] int itemId, [FromBody] Group group)
+        public void UpdateGroupItemById([FromQuery] int groupId, [FromQuery] int itemId, [FromBody] GroupRequest group)
         {
             service.UpdateGroupItemByItemId(groupId, itemId, group);
         }

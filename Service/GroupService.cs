@@ -60,38 +60,27 @@ namespace Service
             }
         }
 
-        public void UpdateGroupItemByItemId(int groupId, int itemId, Group newGroup)
+        public void UpdateGroupItemByItemId(int groupId, int itemId, GroupRequest newGroup)
         {
             if (db.groups.TryGetValue(groupId.ToString(), out var group))
             {
-                if (groupId != newGroup.groupNumber)
+                int index = group.FindIndex(item => item.identifierInGroup == itemId);
+                if (index != -1)
                 {
-                    var groupToRemove = group.Where(item => item.identifierInGroup == itemId).FirstOrDefault();
-                    if (groupToRemove != null)
-                    {
-                        group.Remove(groupToRemove);
-                        moveToNewGroup(newGroup);
-                    }
+                    group[index].prop1 = newGroup.prop1;
+                    group[index].prop2 = newGroup.prop2;
+                    group[index].prop3 = newGroup.prop3;
                 }
                 else
                 {
-                    if (itemId != newGroup.identifierInGroup && CheckIfAlreadyExists(group, newGroup))
-                    {
-                        throw new GroupException($"Group with id {newGroup.identifierInGroup} already exists!");
-                    }
-                    int index = group.FindIndex(item => item.identifierInGroup == itemId);
-                    if (index != -1)
-                    {
-                        group[index].prop1 = newGroup.prop1;
-                        group[index].prop2 = newGroup.prop2;
-                        group[index].prop3 = newGroup.prop3;
-                        group[index].identifierInGroup = newGroup.identifierInGroup;
-                    }
+                    throw new GroupException($"Group item with id {itemId} not present!");
                 }
             }
+            else
+            {
+                throw new GroupException($"Group with id {groupId} not found!");
+            }
         }
-
-
 
         private bool CheckIfAlreadyExists(List<Group> group, Group newGroup)
         {
@@ -101,19 +90,6 @@ namespace Service
                 return true;
             }
             return false;
-        }
-
-
-        private void moveToNewGroup(Group groupItem)
-        {
-            if (db.groups.TryGetValue(groupItem.groupNumber.ToString(), out var group))
-            {
-                group.Add(groupItem);
-            }
-            else
-            {
-                db.groups.Add(groupItem.groupNumber.ToString(), new List<Group> { groupItem });
-            }
         }
 
         public List<Group> Clone(int group1, int group2)
