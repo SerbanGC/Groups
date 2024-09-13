@@ -24,3 +24,10 @@ C:\.NET\obj\Debug\net8.0\.NET.pdb
 C:\.NET\obj\Debug\net8.0\.NET.genruntimeconfig.cache
 C:\.NET\obj\Debug\net8.0\ref\.NET.dll
 C:\.NET\obj\Debug\net8.0\.NET.sourcelink.json
+C:\.NET\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\.NET\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\.NET\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\.NET\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\.NET\obj\Debug\net8.0\.NET.csproj.AssemblyReference.cache
+C:\.NET\obj\Debug\net8.0\.NET.MvcApplicationPartsAssemblyInfo.cs
+C:\.NET\obj\Debug\net8.0\.NET.csproj.Up2Date
