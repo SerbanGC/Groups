@@ -23,3 +23,4 @@ C:\.NET\obj\Debug\net8.0\refint\.NET.dll
 C:\.NET\obj\Debug\net8.0\.NET.pdb
 C:\.NET\obj\Debug\net8.0\.NET.genruntimeconfig.cache
 C:\.NET\obj\Debug\net8.0\ref\.NET.dll
+C:\.NET\obj\Debug\net8.0\.NET.sourcelink.json
